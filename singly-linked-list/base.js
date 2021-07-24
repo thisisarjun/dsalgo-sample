@@ -136,6 +136,15 @@ class SinglyLinkedList{
     }
     this.length++;
   }
+  traverse(){
+    let current = this.head;
+    let str = '';
+    while(current != null){
+      str += `${current.val} -> `;
+      current = current.next;
+    };
+    return str;
+  }
 
   remove(index){
     if(!this.head){
@@ -168,5 +177,34 @@ class SinglyLinkedList{
       i++;
     }
     return val;
+  }
+
+  reverse(){
+    if(!this.head){
+      return null;
+    }
+    if(this.head === this.tail){
+      return this;
+    }
+
+    let prev = this.head;
+    let current = prev.next;
+    
+    // swap head and ta
+    
+    while(current != null){      
+      let c = current.next;      
+      current.next = prev;
+      prev = current;
+      current = c      
+    }
+
+    // swap head and tail and make the prev head's next as null
+    let t = this.head;
+    this.head = this.tail;
+    this.tail =t;
+    this.tail.next = null;
+    
+    return this;
   }
 }

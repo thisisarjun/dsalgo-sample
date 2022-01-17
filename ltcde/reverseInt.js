@@ -11,8 +11,7 @@ var reverse = function(x) {
       let temp = s[i];
       s[i] = s[j];
       s[j] = temp
-      
-      
+            
       i++;
       j--;
   }
